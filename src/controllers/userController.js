@@ -15,7 +15,7 @@ export const loginUser = asyncHandler(async (req, res) => {
   
       res.cookie("auth_token", token, {
         httpOnly: true, // Secure against XSS
-        secure: false, // Set to true in production (HTTPS)
+        secure: true, // Set to true in production (HTTPS)
         maxAge: 24000 * 60 * 60, // 1 hour
       });
   
