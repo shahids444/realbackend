@@ -25,7 +25,7 @@ const app = express();
 app.use(cookieParser()); // Enable reading cookies
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5174", 
+    origin: "http://localhost:5175", 
     credentials: true, 
     allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -56,7 +56,7 @@ app.get("/logout", (req, res) => {
   res.clearCookie("auth_token", {
     httpOnly: true, // Secure against XSS
         secure: false, // Set to true in production (HTTPS)
-        maxAge: 1000 * 60 * 60, // 1 hour
+        maxAge: 24000 * 60 * 60, // 1 hour
   });
   res.status(200).json({ message: "Logged out successfully" });
 });
